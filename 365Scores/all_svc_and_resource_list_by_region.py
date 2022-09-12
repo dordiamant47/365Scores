@@ -1,6 +1,10 @@
 import boto3
 from botocore.exceptions import ClientError
 from skew import scan
+import os
+
+# Set environment variable for skew configuration
+os.environ["SKEW_CONFIG"] = "skew.yaml"
 
 # Get all aws regions and create text file for output
 regions = boto3.session.Session().get_available_regions('ec2')
